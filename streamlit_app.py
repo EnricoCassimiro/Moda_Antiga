@@ -87,3 +87,9 @@ with st.container():
     st.write("---")
 ###################################################
 st.sidebar.warning ('Atenção: O site está em manutenção. Algumas funcionalidades podem estar temporariamente indisponíveis.')
+###################################################
+# Conteúdo da página de teste
+def test_page():
+    st.title('Bem-vindo à fase de teste!')
+    st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
+    st.write('Por favor, compartilhe quaisquer feedbacks ou sugestões conosco.')
