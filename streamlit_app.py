@@ -12,6 +12,7 @@ def test_page():
 ###################################################
 st.header('Gráfico de vendas.')
 st.write('MODA ANTIGA - Loja de roupas femininas!')
+st.warning('This is a warning', icon="⚠️")
 ###################################################
 with st.container():
     st.write("---")
