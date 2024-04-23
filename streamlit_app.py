@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Carregar os dados do CSV
 @st.cache
 def load_data():
-    df = pd.read_csv('dados.csv')
+    df = pd.read_csv('Trabalho - Estoque - Blusa.csv')
     return df
 
 df = load_data()
