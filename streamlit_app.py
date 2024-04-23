@@ -3,6 +3,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 ###################################################
+# Conteúdo da página de teste
+def test_page():
+    st.title('Bem-vindo à fase de teste!')
+    st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
+    st.write('Por favor, compartilhe quaisquer feedbacks ou sugestões conosco.')
+###################################################
 st.header('Gráfico de vendas.')
 st.write('MODA ANTIGA - Loja de roupas femininas!')
 ###################################################
@@ -88,16 +94,12 @@ with st.container():
 ###################################################
 st.sidebar.warning ('Atenção: O site está em manutenção. Algumas funcionalidades podem estar temporariamente indisponíveis.')
 ###################################################
-# Conteúdo da página de teste
-def test_page():
-    st.title('Bem-vindo à fase de teste!')
-    st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
-    st.write('Por favor, compartilhe quaisquer feedbacks ou sugestões conosco.')
+
 ###################################################
 # Carregar os dados do CSV
 @st.cache
 def load_data():
-    df = pd.read_csv('seu_arquivo.csv')
+    df = pd.read_csv('Trabalho - Estoque - Blusa.csv')
     return df
 
 df = load_data()
@@ -108,13 +110,13 @@ chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Gráfico de Linhas'
 
 if chart_type == 'Gráfico de Linhas':
     chart = alt.Chart(df).mark_line().encode(
-        x='X_axis_column',
-        y='Y_axis_column'
+        x='ESTOQUE',
+        y='DESCRIÇÃO'
     ).interactive()
 else:
     chart = alt.Chart(df).mark_bar().encode(
-        x='X_axis_column',
-        y='Y_axis_column'
+        x='ESTOQUE',
+        y='DESCRIÇÃO'
     ).interactive()
 
 st.altair_chart(chart, use_container_width=True)
