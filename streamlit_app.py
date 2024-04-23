@@ -47,7 +47,7 @@ def plot_stock_chart(data):
 def page1(data):
     st.title('Página 1')
     st.write('Este é o conteúdo da página 1:')
-    st.write(data.head())  # Exemplo de exibição dos primeiros 5 registros do DataFrame
+    st.write(data.head(15))  # Exemplo de exibição dos primeiros 5 registros do DataFrame
 
 # Página 2
 def page2(data):
