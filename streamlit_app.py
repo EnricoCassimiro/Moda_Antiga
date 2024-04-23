@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 
 st.header('Gráfico de linhas')
@@ -13,5 +13,5 @@ chart_data = pd.DataFrame(
 
 st.line_chart(chart_data)
 
-st.title('st.file_uploader')
+
 
