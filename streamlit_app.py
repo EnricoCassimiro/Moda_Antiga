@@ -4,10 +4,22 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 ###################################################
+# Carregar os dados do CSV
+@st.cache
+def load_data():
+    df = pd.read_csv('dados.csv')
+    return df
 
+df = load_data()
+
+# Mostrar o DataFrame carregado
+st.write(df)
+
+# Criar o gráfico de linha com base nos dados do CSV
+st.line_chart(df)
 ###################################################
-st.header('Gráfico de vendas.')
-st.write('MODA ANTIGA - Loja de roupas femininas!')
+st.header('LOJA MODA ANTIGA')
+st.write('Loja de roupas femininas!')
 st.warning('Atenção: O site está em manutenção. Algumas funcionalidades podem ficar temporariamente indisponíveis.', icon="⚠️")
 st.title('Bem-vindo à fase de teste!')
 st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
