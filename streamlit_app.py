@@ -94,3 +94,27 @@ def test_page():
     st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
     st.write('Por favor, compartilhe quaisquer feedbacks ou sugestões conosco.')
 ###################################################
+# Carregar os dados do CSV
+@st.cache
+def load_data():
+    df = pd.read_csv('seu_arquivo.csv')
+    return df
+
+df = load_data()
+
+# Criar o gráfico interativo
+st.title('Gráfico Interativo a partir de um CSV')
+chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Gráfico de Linhas', 'Gráfico de Barras'])
+
+if chart_type == 'Gráfico de Linhas':
+    chart = alt.Chart(df).mark_line().encode(
+        x='X_axis_column',
+        y='Y_axis_column'
+    ).interactive()
+else:
+    chart = alt.Chart(df).mark_bar().encode(
+        x='X_axis_column',
+        y='Y_axis_column'
+    ).interactive()
+
+st.altair_chart(chart, use_container_width=True)
