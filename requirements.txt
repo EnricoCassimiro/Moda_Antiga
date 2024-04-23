@@ -1,1 +1,2 @@
 matplotlib==3.4.3
+altair==4.1.0
