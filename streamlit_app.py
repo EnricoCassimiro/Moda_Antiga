@@ -4,15 +4,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 ###################################################
-# Conteúdo da página de teste
-def test_page():
-    st.title('Bem-vindo à fase de teste!')
-    st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
-    st.write('Por favor, compartilhe quaisquer feedbacks ou sugestões conosco.')
+
 ###################################################
 st.header('Gráfico de vendas.')
 st.write('MODA ANTIGA - Loja de roupas femininas!')
-st.warning('This is a warning', icon="⚠️")
+st.warning('Atenção: O site está em manutenção. Algumas funcionalidades podem ficar temporariamente indisponíveis.', icon="⚠️")
+st.title('Bem-vindo à fase de teste!')
+st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
 ###################################################
 with st.container():
     st.write("---")
