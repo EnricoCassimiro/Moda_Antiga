@@ -111,13 +111,13 @@ chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Gráfico de Linhas'
 
 if chart_type == 'Gráfico de Linhas':
     chart = alt.Chart(df).mark_line().encode(
-        x='ESTOQUE',
-        y='DESCRIÇÃO'
+        x='DESCRIÇÃO',
+        y='ESTOQUE'
     ).interactive()
 else:
     chart = alt.Chart(df).mark_bar().encode(
-        x='ESTOQUE',
-        y='DESCRIÇÃO'
+        x='DESCRIÇÃO',
+        y='ESTOQUE'
     ).interactive()
 
 st.altair_chart(chart, use_container_width=True)
