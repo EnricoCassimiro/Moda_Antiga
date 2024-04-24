@@ -48,7 +48,7 @@ def plot_stock_chart(data):
 def page1(data):
     st.title('TABELA COMPLETA')
     st.write('Este é o conteúdo da página 1:')
-    st.write(data.head(15))  # Exemplo de exibição dos primeiros 5 registros do DataFrame
+    st.write(data.head(all))  # Exemplo de exibição dos primeiros 5 registros do DataFrame
 
 # Página 2
 def page2(data):
@@ -64,7 +64,7 @@ def page3(data):
 
 # Interface do Streamlit
 st.sidebar.title('Menu de Navegação')
-page = st.sidebar.radio('Escolha uma página:', ['Página 1', 'Página 2', 'Página 3'])
+page = st.sidebar.radio('Escolha uma página:', ['Tabela Completa', 'Tabela de Estatísticas', 'Página 3'])
 
 # Carregar os dados do arquivo CSV
 uploaded_file = st.sidebar.file_uploader("Escolha um arquivo CSV", type=['csv'])
@@ -163,3 +163,4 @@ elif chart_type == 'Preços':
     # Filtrar apenas as colunas de preços
     precos_df = df[['Preço_Tops', 'Preço_Calças', 'Preço_Blusas']]
     st.line_chart(precos_df)
+###################################################
