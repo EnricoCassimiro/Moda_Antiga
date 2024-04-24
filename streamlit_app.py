@@ -5,7 +5,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ###################################################
+# Defina um nome de usuário e senha válidos para demonstração
+USERNAME = "usuario"
+PASSWORD = "senha123"
 
+# Interface do Streamlit
+st.title("Tela de Login")
+
+# Campo de entrada para o nome de usuário
+username = st.text_input("Nome de usuário")
+
+# Campo de entrada para a senha
+password = st.text_input("Senha", type="password")
+
+# Botão para fazer login
+if st.button("Login"):
+    # Verifique se o nome de usuário e a senha estão corretos
+    if username == USERNAME and password == PASSWORD:
+        st.success("Login bem-sucedido!")
+        # Aqui você pode redirecionar para outra página ou fornecer acesso ao conteúdo protegido
+    else:
+        st.error("Nome de usuário ou senha incorretos")
 ###################################################
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
