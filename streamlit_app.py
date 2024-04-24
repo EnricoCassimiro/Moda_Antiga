@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ###################################################
-st.balloons()
+
 ###################################################
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
@@ -95,22 +95,7 @@ with st.container():
 ###################################################
 st.sidebar.warning ('Atenção: O site está em manutenção. Algumas funcionalidades podem estar temporariamente indisponíveis.')
 ###################################################
-# Substitua 'nome_do_arquivo.csv' pelo nome do seu arquivo CSV
-nome_do_arquivo = 'Trabalho - Estoque - Blusa.csv'
 
-# Lê o arquivo CSV e carrega-o em um DataFrame do pandas
-df = pd.read_csv(nome_do_arquivo)
-
-# Crie um gráfico de barras usando Matplotlib
-plt.figure(figsize=(12, 6))  # Define o tamanho da figura
-plt.bar(df['DESCRIÇÃO'], df['ESTOQUE'], color='skyblue')  # Cria o gráfico de barras
-plt.title('Estoque por Descrição')  # Define o título do gráfico
-plt.xlabel('Descrição')  # Define o rótulo do eixo x
-plt.ylabel('Estoque')  # Define o rótulo do eixo y
-plt.xticks(rotation=90)  # Rotaciona os rótulos do eixo x para melhor legibilidade
-plt.grid(axis='y')  # Adiciona linhas de grade apenas ao eixo y
-plt.tight_layout()  # Ajusta automaticamente a disposição do gráfico para evitar sobreposições
-plt.show()
 ###################################################
 # Carregar os dados do CSV
 @st.cache
@@ -164,3 +149,19 @@ elif chart_type == 'Preços':
     precos_df = df[['Preço_Tops', 'Preço_Calças', 'Preço_Blusas']]
     st.line_chart(precos_df)
 ###################################################
+# Substitua 'nome_do_arquivo.csv' pelo nome do seu arquivo CSV
+nome_do_arquivo = 'Trabalho - Estoque - Blusa.csv'
+
+# Lê o arquivo CSV e carrega-o em um DataFrame do pandas
+df = pd.read_csv(nome_do_arquivo)
+
+# Crie um gráfico de barras usando Matplotlib
+plt.figure(figsize=(12, 6))  # Define o tamanho da figura
+plt.bar(df['DESCRIÇÃO'], df['ESTOQUE'], color='skyblue')  # Cria o gráfico de barras
+plt.title('Estoque por Descrição')  # Define o título do gráfico
+plt.xlabel('Descrição')  # Define o rótulo do eixo x
+plt.ylabel('Estoque')  # Define o rótulo do eixo y
+plt.xticks(rotation=90)  # Rotaciona os rótulos do eixo x para melhor legibilidade
+plt.grid(axis='y')  # Adiciona linhas de grade apenas ao eixo y
+plt.tight_layout()  # Ajusta automaticamente a disposição do gráfico para evitar sobreposições
+plt.show()
