@@ -10,7 +10,6 @@ import seaborn as sns
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
 st.warning('Atenção: O site está em manutenção. Algumas funcionalidades podem ficar temporariamente indisponíveis.', icon="⚠️")
-st.title('Bem-vindo à fase de teste!')
 st.write('Este site está atualmente em fase de teste. Agradecemos sua paciência enquanto trabalhamos para melhorá-lo.')
 ###################################################
 with st.container():
