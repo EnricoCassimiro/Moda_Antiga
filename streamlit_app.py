@@ -10,22 +10,35 @@ USERNAME = "usuario"
 PASSWORD = "senha123"
 
 # Interface do Streamlit
-st.title("Tela de Login")
+st.title("Sistema de Login")
 
-# Campo de entrada para o nome de usuário
-username = st.text_input("Nome de usuário")
+# Função para verificar as credenciais do usuário
+def authenticate(username, password):
+    return username == USERNAME and password == PASSWORD
 
-# Campo de entrada para a senha
-password = st.text_input("Senha", type="password")
+# Página de login
+def login_page():
+    st.write("Por favor, faça login para acessar o sistema.")
+    username = st.text_input("Nome de usuário")
+    password = st.text_input("Senha", type="password")
+    if st.button("Login"):
+        if authenticate(username, password):
+            return True
+        else:
+            st.error("Nome de usuário ou senha incorretos")
+    return False
 
-# Botão para fazer login
-if st.button("Login"):
-    # Verifique se o nome de usuário e a senha estão corretos
-    if username == USERNAME and password == PASSWORD:
-        st.success("Login bem-sucedido!")
-        # Aqui você pode redirecionar para outra página ou fornecer acesso ao conteúdo protegido
-    else:
-        st.error("Nome de usuário ou senha incorretos")
+# Página do sistema
+def system_page():
+    st.write("Bem-vindo ao sistema!")
+    st.write("Aqui está o conteúdo do sistema.")
+
+# Verificar o estado de login e exibir a página apropriada
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = login_page()
+
+if st.session_state.authenticated:
+    system_page()
 ###################################################
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
