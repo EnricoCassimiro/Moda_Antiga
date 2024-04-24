@@ -1,11 +1,9 @@
 import streamlit as st
-import pandas_profiling
 import altair as alt
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from streamlit_pandas_profiling import st_profile_report
 ###################################################
 st.balloons()
 ###################################################
@@ -142,10 +140,7 @@ st.altair_chart(chart, use_container_width=True)
 with st.container():
     st.write("---")
 ###################################################
-df = pd.read_csv("Trabalho - Estoque - Blusa.csv")
-pr = df.profile_report()
 
-st_profile_report(pr)
 ###################################################
 # Carregar os dados do CSV
 @st.cache
