@@ -117,7 +117,7 @@ chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Estoque', 'Preços'
 if chart_type == 'Estoque':
     # Filtrar apenas as colunas de estoque
     estoque_df = df[['ESTOQUE', 'DESCRIÇÃO']]
-    st.line_chart(estoque_df)
+    st.bar_chart(estoque_df)
 
 elif chart_type == 'Preços':
     # Filtrar apenas as colunas de preços
