@@ -21,7 +21,7 @@ data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
 # Gráfico de estoque por descrição de roupa
 def plot_stock_chart(data):
     plt.figure(figsize=(10, 6))
-    plt.bar(data['ESCRIÇÃO'], data['ESTOQUE'], color='skyblue')
+    plt.bar(data['DESCRIÇÃO'], data['ESTOQUE'], color='skyblue')
     plt.title('Estoque de Roupas por Descrição')
     plt.xlabel('DESCRIÇÃO')
     plt.ylabel('ESTOQUE')
