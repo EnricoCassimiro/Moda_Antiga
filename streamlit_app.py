@@ -156,7 +156,7 @@ chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Estoque', 'Preços'
 # Criar o gráfico de acordo com a opção selecionada
 if chart_type == 'Estoque':
     # Filtrar apenas as colunas de estoque
-    estoque_df = df[['Tops', 'Calças', 'Blusas']]
+    estoque_df = df[['CROPPED', 'BLUSA', 'CAMISA']]
     st.line_chart(estoque_df)
 
 elif chart_type == 'Preços':
