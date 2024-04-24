@@ -16,7 +16,7 @@ st.write('Este site está atualmente em fase de teste. Agradecemos sua paciênci
 with st.container():
     st.write("---")
 ###################################################
-data = pd.read_csv('dados.csv')
+data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
 
 # Gráfico de estoque por descrição de roupa
 def plot_stock_chart(data):
