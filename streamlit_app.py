@@ -16,23 +16,23 @@ st.write('Este site está atualmente em fase de teste. Agradecemos sua paciênci
 with st.container():
     st.write("---")
 ###################################################
-data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
+data = pd.read_csv('dados.csv')
 
-# Gráfico de estoque por nome de roupa
+# Gráfico de estoque por descrição de roupa
 def plot_stock_chart(data):
-    plt.figure(figsize=(15, 8))
-    plt.bar(data['Nome'], data['Estoque'], color='skyblue')
-    plt.title('Estoque de Roupas por Nome')
-    plt.xlabel('ESTOQUE')
-    plt.ylabel('DESCRIÇÃO')
-    plt.xticks(rotation=90, ha='right')
+    plt.figure(figsize=(10, 6))
+    plt.bar(data['ESCRIÇÃO'], data['ESTOQUE'], color='skyblue')
+    plt.title('Estoque de Roupas por Descrição')
+    plt.xlabel('DESCRIÇÃO')
+    plt.ylabel('ESTOQUE')
+    plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
     st.pyplot()
 
 # Interface do Streamlit
 st.title('Análise de Estoque de Roupas')
 
-# Mostrar o gráfico de estoque por nome de roupa
+# Mostrar o gráfico de estoque por descrição de roupa
 plot_stock_chart(data)
 ###################################################
 
