@@ -146,3 +146,25 @@ df = pd.read_csv("Trabalho - Estoque - Blusa.csv")
 pr = df.profile_report()
 
 st_profile_report(pr)
+###################################################
+# Carregar os dados do CSV
+@st.cache
+def load_data():
+    df = pd.read_csv('Trabalho - Estoque - Blusa.csv')
+    return df
+
+df = load_data()
+
+# Opção para o usuário selecionar o tipo de gráfico
+chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Estoque', 'Preços'])
+
+# Criar o gráfico de acordo com a opção selecionada
+if chart_type == 'Estoque':
+    # Filtrar apenas as colunas de estoque
+    estoque_df = df[['Tops', 'Calças', 'Blusas']]
+    st.line_chart(estoque_df)
+
+elif chart_type == 'Preços':
+    # Filtrar apenas as colunas de preços
+    precos_df = df[['Preço_Tops', 'Preço_Calças', 'Preço_Blusas']]
+    st.line_chart(precos_df)
