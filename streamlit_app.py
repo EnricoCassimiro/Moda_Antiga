@@ -23,22 +23,18 @@ def login_page():
     password = st.text_input("Senha", type="password")
     if st.button("Login"):
         if authenticate(username, password):
-            return True
+            st.session_state.authenticated = True
+            return
         else:
             st.error("Nome de usuário ou senha incorretos")
-    return False
 
-# Página do sistema
-def system_page():
+# Verificar se o usuário está autenticado antes de mostrar a página do sistema
+if "authenticated" not in st.session_state or not st.session_state.authenticated:
+    login_page()
+else:
+    # Página do sistema
     st.write("Bem-vindo ao sistema!")
     st.write("Aqui está o conteúdo do sistema.")
-
-# Verificar o estado de login e exibir a página apropriada
-if "authenticated" not in st.session_state:
-    st.session_state.authenticated = login_page()
-
-if st.session_state.authenticated:
-    system_page()
 ###################################################
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
