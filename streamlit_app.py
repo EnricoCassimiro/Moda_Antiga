@@ -16,49 +16,12 @@ st.write('Este site está atualmente em fase de teste. Agradecemos sua paciênci
 with st.container():
     st.write("---")
 ###################################################
-data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
 
-# Gráfico de estoque por descrição de roupa
-def plot_stock_chart(data):
-    plt.figure(figsize=(10, 6))
-    plt.bar(data['DESCRIÇÃO'], data['ESTOQUE'], color='skyblue')
-    plt.title('Estoque de Roupas por Descrição')
-    plt.xlabel('DESCRIÇÃO')
-    plt.ylabel('ESTOQUE')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    st.pyplot()
 
-# Interface do Streamlit
-st.title('Análise de Estoque de Roupas')
-
-# Mostrar o gráfico de estoque por descrição de roupa
-plot_stock_chart(data)
-###################################################
 
 ###################################################
-data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
 
-# Agrupar os dados pelo nome da roupa e somar o estoque
-data_agrupado = data.groupby('CROPPED')['ESTOQUE'].sum().reset_index()
 
-# Gráfico de estoque por nome de roupa
-def plot_stock_chart(data):
-    plt.figure(figsize=(15, 8))
-    plt.bar(data['CROPPED'], data['ESTOQUE'], color='skyblue')
-    plt.title('Estoque de Roupas por Nome')
-    plt.xlabel('CROPPED')
-    plt.ylabel('ESTOQUE')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    st.pyplot()
-
-# Interface do Streamlit
-st.title('Análise de Estoque de Roupas')
-
-# Mostrar o gráfico de estoque por nome de roupa
-plot_stock_chart(data_agrupado)
-###################################################
 
 ###################################################
 with st.container():
@@ -68,11 +31,10 @@ with st.container():
 ###################################################
 with st.container():
     st.write("---")
-###################################################
+
 st.sidebar.warning ('Atenção: O site está em manutenção. Algumas funcionalidades podem estar temporariamente indisponíveis.')
 ###################################################
 
-###################################################
 # Carregar os dados do CSV
 @st.cache
 def load_data():
@@ -99,11 +61,5 @@ else:
 st.altair_chart(chart, use_container_width=True)
 ###################################################
 
-###################################################
 with st.container():
     st.write("---")
-###################################################
-
-###################################################
-#COLOCAR ALGUMA COISA AQUI
-###################################################
