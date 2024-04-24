@@ -15,29 +15,18 @@ st.write('Este site está atualmente em fase de teste. Agradecemos sua paciênci
 with st.container():
     st.write("---")
 ###################################################
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['Tops', 'Calças', 'Blusas'])
-
-st.line_chart(chart_data)
+#COLOCAR UM GRAFICO AQUI
 ###################################################
 
 ###################################################
-# Crie um dataframe de exemplo estoque das roupas
-data = pd.DataFrame({
-  'Estoque': ['Tops', 'Calças', 'Blusas', 'Cropped', 'Shorts'],
-  'Quantidade': [25, 35, 45, 55, 44]
-})
- 
-# Crie um gráfico de barras
-st.bar_chart(data)
+#COLOCAR UM GRFICO AQUI
 ###################################################
 
 ###################################################
 with st.container():
     st.write("---")
 ###################################################
-
+#COLOCAR UM GRAFICO AQUI
 ###################################################
 with st.container():
     st.write("---")
@@ -78,5 +67,5 @@ with st.container():
 ###################################################
 
 ###################################################
-
+#COLOCAR ALGUMA COISA AQUI
 ###################################################
