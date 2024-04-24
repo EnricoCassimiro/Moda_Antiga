@@ -37,7 +37,27 @@ plot_stock_chart(data)
 ###################################################
 
 ###################################################
-#COLOCAR UM GRFICO AQUI
+data = pd.read_csv('Trabalho - Estoque - Blusa.csv')
+
+# Agrupar os dados pelo nome da roupa e somar o estoque
+data_agrupado = data.groupby('CROPPED')['ESTOQUE'].sum().reset_index()
+
+# Gráfico de estoque por nome de roupa
+def plot_stock_chart(data):
+    plt.figure(figsize=(15, 8))
+    plt.bar(data['CROPPED'], data['ESTOQUE'], color='skyblue')
+    plt.title('Estoque de Roupas por Nome')
+    plt.xlabel('CROPPED')
+    plt.ylabel('ESTOQUE')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    st.pyplot()
+
+# Interface do Streamlit
+st.title('Análise de Estoque de Roupas')
+
+# Mostrar o gráfico de estoque por nome de roupa
+plot_stock_chart(data_agrupado)
 ###################################################
 
 ###################################################
