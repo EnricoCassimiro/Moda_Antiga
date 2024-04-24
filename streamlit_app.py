@@ -3,38 +3,8 @@ import altair as alt
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
 ###################################################
-# Defina um nome de usuário e senha válidos para demonstração
-USERNAME = "usuario"
-PASSWORD = "senha123"
 
-# Interface do Streamlit
-st.title("Sistema de Login")
-
-# Função para verificar as credenciais do usuário
-def authenticate(username, password):
-    return username == USERNAME and password == PASSWORD
-
-# Página de login
-def login_page():
-    st.write("Por favor, faça login para acessar o sistema.")
-    username = st.text_input("Nome de usuário")
-    password = st.text_input("Senha", type="password")
-    if st.button("Login"):
-        if authenticate(username, password):
-            st.session_state.authenticated = True
-            return
-        else:
-            st.error("Nome de usuário ou senha incorretos")
-
-# Verificar se o usuário está autenticado antes de mostrar a página do sistema
-if "authenticated" not in st.session_state or not st.session_state.authenticated:
-    login_page()
-else:
-    # Página do sistema
-    st.write("Bem-vindo ao sistema!")
-    st.write("Aqui está o conteúdo do sistema.")
 ###################################################
 st.header('LOJA MODA ANTIGA')
 st.write('Loja de roupas femininas!')
@@ -51,6 +21,8 @@ chart_data = pd.DataFrame(
 
 st.line_chart(chart_data)
 ###################################################
+
+###################################################
 # Crie um dataframe de exemplo estoque das roupas
 data = pd.DataFrame({
   'Estoque': ['Tops', 'Calças', 'Blusas', 'Cropped', 'Shorts'],
@@ -59,6 +31,8 @@ data = pd.DataFrame({
  
 # Crie um gráfico de barras
 st.bar_chart(data)
+###################################################
+
 ###################################################
 with st.container():
     st.write("---")
@@ -97,46 +71,12 @@ else:
 
 st.altair_chart(chart, use_container_width=True)
 ###################################################
+
+###################################################
 with st.container():
     st.write("---")
 ###################################################
 
 ###################################################
-# Carregar os dados do CSV
-@st.cache
-def load_data():
-    df = pd.read_csv('Trabalho - Estoque - Blusa.csv')
-    return df
 
-df = load_data()
-
-# Opção para o usuário selecionar o tipo de gráfico
-chart_type = st.selectbox('Selecione o tipo de gráfico:', ['Estoque', 'Preços'])
-
-# Criar o gráfico de acordo com a opção selecionada
-if chart_type == 'Estoque':
-    # Filtrar apenas as colunas de estoque
-    estoque_df = df[['ESTOQUE', 'DESCRIÇÃO']]
-    st.bar_chart(estoque_df)
-
-elif chart_type == 'Preços':
-    # Filtrar apenas as colunas de preços
-    precos_df = df[['Preço_Tops', 'Preço_Calças', 'Preço_Blusas']]
-    st.line_chart(precos_df)
 ###################################################
-# Substitua 'nome_do_arquivo.csv' pelo nome do seu arquivo CSV
-nome_do_arquivo = 'Trabalho - Estoque - Blusa.csv'
-
-# Lê o arquivo CSV e carrega-o em um DataFrame do pandas
-df = pd.read_csv(nome_do_arquivo)
-
-# Crie um gráfico de barras usando Matplotlib
-plt.figure(figsize=(12, 6))  # Define o tamanho da figura
-plt.bar(df['DESCRIÇÃO'], df['ESTOQUE'], color='skyblue')  # Cria o gráfico de barras
-plt.title('Estoque por Descrição')  # Define o título do gráfico
-plt.xlabel('Descrição')  # Define o rótulo do eixo x
-plt.ylabel('Estoque')  # Define o rótulo do eixo y
-plt.xticks(rotation=90)  # Rotaciona os rótulos do eixo x para melhor legibilidade
-plt.grid(axis='y')  # Adiciona linhas de grade apenas ao eixo y
-plt.tight_layout()  # Ajusta automaticamente a disposição do gráfico para evitar sobreposições
-plt.show()
