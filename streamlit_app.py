@@ -65,7 +65,7 @@ with st.container():
     st.write("---")
 
 
-## PARTE DO CODIGO CRIADO POR ANTHONY
+## PARTE DO CODIGO CRIADO POR ANTHONY ##
 
 
 # Configuração da barra lateral
